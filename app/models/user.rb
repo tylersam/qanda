@@ -16,7 +16,8 @@
 class User < ApplicationRecord
   devise :omniauthable, omniauth_providers: %i[google_oauth2]
 
-  has_many :questions, dependent: :destroy
+  has_many :questions, dependent: :restrict_with_exception
+  has_many :answers, dependent: :restrict_with_exception
 
   def first_initial
     first_name[0].upcase

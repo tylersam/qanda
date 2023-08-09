@@ -1,0 +1,9 @@
+<%= form_with(model: answer, url: [@question, @answer]) do |form| %>
+  <div class="form-control my-4">
+    <%= form.text_area :body, class: "textarea textarea-bordered w-full", rows: 5 %>
+  </div>
+
+  <div class="form-control">
+    <%= form.submit class: "btn btn-primary w-min" %>
+  </div>
+<% end %>
