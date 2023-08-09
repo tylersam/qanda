@@ -19,6 +19,7 @@
 #
 class Question < ApplicationRecord
   belongs_to :user
+  has_many :answers, dependent: :destroy
 
   enum :status,
        { unanswered: 'unanswered', answered: 'answered', solved: 'solved' }
