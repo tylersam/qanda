@@ -68,5 +68,4 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   config.include Capybara::RSpecMatchers, type: :component
   config.include ActiveJob::TestHelper
-  config.include Helpers
 end
