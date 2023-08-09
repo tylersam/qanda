@@ -1,1 +1,7 @@
-<div>Home</div>
+<div>
+  <%= link_to "Ask Question", new_question_path, class: "sm:hidden btn btn-primary" %>
+
+  <div class="flex gap-4 flex-wrap flex-row my-4">
+    <%= render @questions %>
+  </div>
+</div>

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
              path_names: {
                sign_in: 'login',
              }
-  # can't use the controller options in devise_for b/c the database_authenticatable 
-  #  module is not currently being used  
+  # can't use the controller options in devise_for b/c the database_authenticatable
+  #  module is not currently being used
   #  when that module isn't used, devise ignores the sessions controller option
   devise_scope :user do
     get 'login', to: 'login#show', as: :new_user_session
@@ -24,4 +24,6 @@ Rails.application.routes.draw do
       root to: 'login#show'
     end
   end
+
+  resources :questions, only: %i[show new edit create update destroy]
 end

@@ -10,9 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_08_191110) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_09_080402) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "question_status", ["unanswered", "answered", "solved"]
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "body", null: false
+    t.enum "status", default: "unanswered", null: false, enum_type: "question_status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_questions_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -23,4 +36,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_191110) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "questions", "users"
 end
