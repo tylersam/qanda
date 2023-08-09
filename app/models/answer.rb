@@ -24,4 +24,10 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :body, presence: true
+
+  after_commit :update_question_status, on: %i[create destroy]
+
+  def update_question_status
+    self.question.update_status
+  end
 end

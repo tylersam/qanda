@@ -29,4 +29,12 @@ class Question < ApplicationRecord
               minimum: 10,
               message: 'question must be at least 10 characters',
             }
+
+  def update_status
+    if self.answers.size.zero?
+      self.update(status: 'unanswered')
+    else
+      self.update(status: 'answered')
+    end
+  end
 end
