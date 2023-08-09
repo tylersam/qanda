@@ -2,7 +2,7 @@
   <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between h-16">
       <%# Left section - Logo and Desktop Links %>
-      <div class="flex">
+      <div class="flex items-center">
 
         <%# Logo section (visible for both desktop and mobile) %>
         <div class="flex-shrink-0 flex items-center">
@@ -25,6 +25,7 @@
             <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"> Projects </a>
             <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"> Calendar </a>
           %>
+          <%= link_to "Ask Question", new_question_path, class: "btn btn-primary" %>
         </div>
         <%# END Desktop Links section%>
       </div>
