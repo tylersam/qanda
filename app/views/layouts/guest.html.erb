@@ -12,14 +12,10 @@
 
   <body class="h-full">
     <div class="min-h-full px-2 py-2 sm:px-2 lg:px-4">
-      <%= render partial: "layouts/navigation" %>
+      <%= render(FlashComponent.new(alert_type: :notice, message: notice, layout: :guest)) %>
+      <%= render(FlashComponent.new(alert_type: :alert, message: alert, layout: :guest)) %>
 
-      <%= render FlashComponent.new(alert_type: :notice, message: notice) %>
-      <%= render FlashComponent.new(alert_type: :alert, message: alert) %>
-
-      <div class="px-4 py-4">
-        <%= yield %>
-      </div>
+      <%= yield %>
     </div>
   </body>
 </html>
