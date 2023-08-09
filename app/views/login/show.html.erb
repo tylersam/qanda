@@ -9,7 +9,7 @@
 
   <div class="my-10">
     <%= button_to(omniauth_authorize_path(:user, :google_oauth2),
-            class: "btn btn-outline my-1",
+            class: "btn btn-outline my-1 bg-white",
             data: { turbo: false, disable_with: 'Redirecting...' }) do %>
       <%= image_tag("google_oauth2.svg", class: "w-6 h-6") %>
       <span class="mx-2">
