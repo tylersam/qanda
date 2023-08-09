@@ -1,0 +1,20 @@
+<div class="flex flex-col items-center my-20">
+  <div class="text-2xl">
+    ¯\_(ツ)_/¯
+  </div>
+
+  <div class="text-4xl">
+    Q&A
+  </div>
+
+  <div class="my-10">
+    <%= button_to(omniauth_authorize_path(:user, :google_oauth2),
+            class: "btn btn-outline my-1",
+            data: { turbo: false, disable_with: 'Redirecting...' }) do %>
+      <%= image_tag("google_oauth2.svg", class: "w-6 h-6") %>
+      <span class="mx-2">
+        Sign in with Google
+      </span>
+    <% end %>
+  </div>
+</div>
